@@ -1,0 +1,49 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ZoneCard from "../components/ZoneCard.astro";
+import { interventionZones, headquarters } from "../data/contact";
+---
+
+<BaseLayout title="Contact">
+  <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+    <h1 class="text-center font-display text-4xl font-semibold text-text">
+      Contact
+    </h1>
+    <p class="mx-auto mt-4 max-w-2xl text-center text-text-muted">
+      Une question, un besoin, un devis ? Voici nos zones d'intervention et
+      notre siège social.
+    </p>
+
+    <h2 class="mt-12 text-center font-display text-2xl font-semibold text-text">
+      Nos zones d'intervention
+    </h2>
+    <div class="mt-6 grid gap-6 sm:grid-cols-2">
+      {interventionZones.map((zone) => <ZoneCard zone={zone} />)}
+    </div>
+
+    <div class="mx-auto mt-10 max-w-xl">
+      <article
+        class="flex flex-col items-center gap-2 rounded-2xl border border-border bg-surface-alt p-6 text-center shadow-sm"
+      >
+        <h2 class="font-display text-xl font-semibold text-text">
+          {headquarters.name}
+        </h2>
+        <p class="flex items-center gap-2 text-sm text-text-muted">
+          <svg
+            class="h-5 w-5 shrink-0 text-primary"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          {headquarters.address}
+        </p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

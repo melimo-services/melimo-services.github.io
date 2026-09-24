@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+import type { Service } from "../data/services";
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props;
+---
+
+<article
+  class="flex flex-col overflow-hidden rounded-2xl border border-border bg-surface shadow-sm"
+>
+  <Image
+    src={service.image}
+    alt={service.title}
+    width={480}
+    height={320}
+    class="h-48 w-full object-cover"
+  />
+  <div class="flex flex-1 flex-col gap-3 p-6">
+    <h3 class="font-display text-xl font-semibold text-text">
+      {service.title}
+    </h3>
+    <p class="flex-1 text-sm text-text-muted">{service.text}</p>
+    <div class="mt-2 rounded-xl bg-surface-alt p-4">
+      <p class="text-sm font-semibold text-text">{service.priceTTC} TTC</p>
+      <p class="text-sm text-primary">{service.priceCredit}</p>
+    </div>
+  </div>
+</article>

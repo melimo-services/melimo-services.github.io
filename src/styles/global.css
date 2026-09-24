@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@import "@fontsource-variable/fraunces";
+@import "@fontsource-variable/inter";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --font-display: "Fraunces Variable", ui-serif, Georgia, serif;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --bg: #fbf7f0;
+  --surface: #ffffff;
+  --surface-alt: #f3ece0;
+  --text: #2e2a26;
+  --text-muted: #6b6459;
+  --primary: #5b7f63;
+  --primary-dark: #46654c;
+  --accent: #d98868;
+  --border: #e7dfd0;
+}
+
+html.dark {
+  --bg: #201e1b;
+  --surface: #2a2723;
+  --surface-alt: #322e28;
+  --text: #f3ece0;
+  --text-muted: #c9c0b2;
+  --primary: #8fb399;
+  --primary-dark: #a9c9af;
+  --accent: #e4a184;
+  --border: #3d382f;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+}

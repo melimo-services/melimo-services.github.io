@@ -1,0 +1,46 @@
+---
+---
+
+<button
+  type="button"
+  aria-label="Changer de thème"
+  class="theme-toggle inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-text transition-colors hover:bg-surface-alt"
+>
+  <svg
+    class="hidden h-5 w-5 dark:block"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+  >
+    <circle cx="12" cy="12" r="4"></circle>
+    <path
+      d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+    ></path>
+  </svg>
+  <svg
+    class="h-5 w-5 dark:hidden"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"></path>
+  </svg>
+</button>
+
+<script is:inline>
+  if (!window.__themeToggleInit) {
+    window.__themeToggleInit = true;
+    document.addEventListener("click", (event) => {
+      if (!(event.target instanceof Element)) return;
+      if (!event.target.closest(".theme-toggle")) return;
+      const root = document.documentElement;
+      const isDark = root.classList.toggle("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  }
+</script>

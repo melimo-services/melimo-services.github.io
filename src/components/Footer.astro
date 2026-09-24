@@ -1,0 +1,30 @@
+---
+import { withBase } from "../utils/url";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-border bg-surface">
+  <div
+    class="mx-auto flex max-w-5xl flex-col items-center gap-2 px-4 py-8 text-center sm:px-6"
+  >
+    <p class="font-display text-lg font-semibold text-text">
+      Mélimo Services
+    </p>
+    <p class="text-sm text-text-muted">
+      Services à la personne à Valenciennes et en Dordogne.
+    </p>
+    <nav class="mt-2 flex gap-4 text-sm">
+      <a href={withBase("")} class="text-text-muted hover:text-primary"
+        >Accueil</a
+      >
+      <a
+        href={withBase("contact/")}
+        class="text-text-muted hover:text-primary">Contact</a
+      >
+    </nav>
+    <p class="mt-4 text-xs text-text-muted">
+      © {year} Mélimo Services — Tous droits réservés
+    </p>
+  </div>
+</footer>

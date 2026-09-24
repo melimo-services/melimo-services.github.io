@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import { services, travelFee } from "../data/services";
+
+const steps = [
+  {
+    title: "Premier contact",
+    text: "Vous nous contactez par téléphone ou par mail pour nous parler de vos besoins.",
+  },
+  {
+    title: "Devis gratuit à domicile",
+    text: "Un responsable se déplace chez vous pour évaluer précisément vos besoins et vous remettre un devis gratuit et sans engagement.",
+  },
+  {
+    title: "Mise en place",
+    text: "Après signature du contrat, vous recevez votre livret d'accueil et nous vous présentons votre intervenant. Un planning précis est établi ensemble, adapté à votre façon de fonctionner.",
+  },
+  {
+    title: "Suivi & facturation",
+    text: "Les interventions démarrent aux dates convenues, avec la garantie satisfait ou refait et un cahier de liaison. Un responsable vous recontacte sous 24h après la première intervention, puis régulièrement. Factures réglables par espèces, chèque, prélèvement ou CESU ; vous recevez chaque année un reçu fiscal pour bénéficier de 50% de crédit d'impôt.",
+  },
+];
+---
+
+<BaseLayout title="Accueil">
+  <Hero />
+
+  <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+    <h2 class="text-center font-display text-3xl font-semibold text-text">
+      Comment ça marche
+    </h2>
+    <div class="mt-10 grid gap-8 sm:grid-cols-2">
+      {
+        steps.map((step, index) => (
+          <div class="flex gap-4">
+            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary font-display text-sm font-semibold text-white">
+              {index + 1}
+            </span>
+            <div>
+              <h3 class="font-semibold text-text">{step.title}</h3>
+              <p class="mt-1 text-sm text-text-muted">{step.text}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section
+    id="services"
+    class="border-t border-border bg-surface-alt px-4 py-16 sm:px-6"
+  >
+    <div class="mx-auto max-w-5xl">
+      <h2 class="text-center font-display text-3xl font-semibold text-text">
+        Nos services
+      </h2>
+      <p class="mx-auto mt-3 max-w-2xl text-center text-text-muted">
+        Tous nos tarifs sont TTC et éligibles au crédit d'impôt de 50%.
+      </p>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {services.map((service) => <ServiceCard service={service} />)}
+      </div>
+      <p class="mt-8 text-center text-sm text-text-muted">
+        Des frais de déplacement de {travelFee.ttc} TTC ({travelFee.credit} après
+        crédit d'impôt) s'appliquent par intervention.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
