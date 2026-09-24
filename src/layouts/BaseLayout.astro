@@ -11,7 +11,7 @@ interface Props {
 
 const {
   title,
-  description = "Mélimo Services : ménage, garde d'enfants, jardinage, aide administrative, livraison de courses et bricolage, à Valenciennes et en Dordogne.",
+  description = "Mélimo Services : ménage, garde d'enfants, jardinage, aide administrative, livraison de courses et bricolage, à Valenciennes et à Sarlat-la-Canéda.",
 } = Astro.props;
 ---
 
@@ -20,10 +20,7 @@ const {
   <head>
     <script is:inline>
       const stored = localStorage.getItem("theme");
-      const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)",
-      ).matches;
-      if (stored === "dark" || (!stored && prefersDark)) {
+      if (stored !== "light") {
         document.documentElement.classList.add("dark");
       }
     </script>

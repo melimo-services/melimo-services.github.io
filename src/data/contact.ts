@@ -9,7 +9,7 @@ export const interventionZones: InterventionZone[] = [
     phone: "06 82 57 55 84",
   },
   {
-    name: "Sarlat & 25 km alentours",
+    name: "Sarlat-la-Canéda & 25 km alentours",
     phone: "05 53 28 70 22",
   },
 ];

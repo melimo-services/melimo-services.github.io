@@ -57,14 +57,20 @@ const steps = [
         Nos services
       </h2>
       <p class="mx-auto mt-3 max-w-2xl text-center text-text-muted">
-        Tous nos tarifs sont TTC et éligibles au crédit d'impôt de 50%.
+        Tous nos tarifs sont TTC et éligibles au crédit d'impôt de 50%. Nous
+        sommes agréés pour l'avance immédiate du crédit d'impôt (CESU+) :
+        vous ne réglez directement que la moitié du prix.
       </p>
       <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => <ServiceCard service={service} />)}
       </div>
       <p class="mt-8 text-center text-sm text-text-muted">
         Des frais de déplacement de {travelFee.ttc} TTC ({travelFee.credit} après
-        crédit d'impôt) s'appliquent par intervention.
+        crédit d'impôt) s'appliquent uniquement lorsque l'intervenant se
+        déplace pour votre compte pendant l'intervention (courses,
+        accompagnement d'un enfant à l'école...). Seul ce trajet est facturé
+        — par exemple le trajet domicile-école de l'enfant — pas celui de
+        l'intervenant pour venir chez vous.
       </p>
     </div>
   </section>
